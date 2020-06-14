@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bai tap tu dien</title>
+</head>
+<body>
+    <form>
+        <fieldset style="width: 350px"><legend>Dictionary</legend>
+
+
+        <input type="text" width="200px" id="inputText" placeholder="nhap tu can tra">
+        <select id="dict" name="dict">
+            <option value="eng" >eng - vie</option>
+            <option value="vie" >vie - eng</option>
+        </select>
+        <input type="button" id="find" value="Find" onclick="findWord()">
+           <br><br> <hr width="350px">
+            <p>ket qua:<span id="result"></span></p>
+        </fieldset>
+    </form>
+<script>
+
+    function findWord() {
+        let eng = ['hello','bye','let']
+        let vie = ['xin chao','tam biet','khai bao']
+        let inWord = document.getElementById('inputText').value;
+        let inputLang = document.getElementById('dict').value;
+        let result = '';
+        if (inputLang === 'eng') {
+                for (let i = 0; i < eng.length; i++) {
+                    if (inWord === eng[i]){
+                        result = vie[i];
+                        break;
+                    } else if (i === eng.length - 1){
+                        result = 'khong tim thay';
+                    }
+                }
+        } else if (inputLang === 'vie'){
+                for (let i = 0; i < vie.length; i++){
+                    if (inWord === vie[i]){
+                        result = eng[i];
+                        break;
+                    } else if (i === vie.length - 1){
+                        result = 'khong tim thay';
+                    }
+                }
+
+        } document.getElementById('result').innerHTML = ' ' + result;
+    }
+
+
+</script>
+</body>
+</html>
